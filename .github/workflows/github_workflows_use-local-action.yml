@@ -1,9 +1,10 @@
-name: Demo: Use local action
+name: "Demo Use local action"
 
 on:
   workflow_dispatch: {}
   push:
-    branches: [ "main" ]
+    branches:
+      - main
 
 jobs:
   greet:
@@ -20,4 +21,4 @@ jobs:
           loud: "true"
 
       - name: Show greeting output
-        run: echo "Greeting from action: ${{ steps.say.outputs.greeting }}"
+        run: "echo \"Greeting from action: ${{ steps.say.outputs.greeting }}\""
