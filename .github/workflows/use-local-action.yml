@@ -1,4 +1,4 @@
-name: "Demo Use local action"
+name: "Demo: Use local action"
 
 on:
   workflow_dispatch: {}
@@ -13,9 +13,16 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: "Debug: list action directory"
+        run: |
+          echo "CWD: $(pwd)"
+          ls -la .github || true
+          ls -la .github/actions || true
+          ls -la .github/actions/say-hello || true
+
       - name: Run local say-hello action
         id: say
-        uses: ./.github/actions/say-hello.yml
+        uses: ./.github/actions/say-hello
         with:
           name: Fabio
           loud: "true"
