@@ -1,0 +1,23 @@
+name: Demo: Use local action
+
+on:
+  workflow_dispatch: {}
+  push:
+    branches: [ "main" ]
+
+jobs:
+  greet:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Run local say-hello action
+        id: say
+        uses: ./.github/actions/say-hello
+        with:
+          name: Fabio
+          loud: "true"
+
+      - name: Show greeting output
+        run: echo "Greeting from action: ${{ steps.say.outputs.greeting }}"

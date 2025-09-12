@@ -1,0 +1,17 @@
+name: "Say Hello"
+description: "A tiny example action that returns a greeting."
+inputs:
+  name:
+    description: "Name to greet"
+    required: false
+    default: "world"
+  loud:
+    description: "If true, return the greeting in uppercase"
+    required: false
+    default: "false"
+outputs:
+  greeting:
+    description: "The final greeting string"
+runs:
+  using: "node16"
+  main: "index.js"
