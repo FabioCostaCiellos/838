@@ -15,7 +15,7 @@ jobs:
 
       - name: Run local say-hello action
         id: say
-        uses: ./.github/actions/say-hello
+        uses: ./.github/actions/say-hello.yml
         with:
           name: Fabio
           loud: "true"
